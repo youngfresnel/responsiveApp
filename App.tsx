@@ -1,28 +1,22 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import { StyleSheet, StatusBar, SafeAreaView} from 'react-native'
+import React from 'react'
+import { NavigationContainer } from '@react-navigation/native';
+import { Provider } from 'react-redux';
+import { store } from './Source/gestionnaire/Store';
+import RootNavigation from './Source/Navigation/RootNavigation';
+import { Boutton } from './Source/Components/Bouton';
+import { Textfill } from './Source/Components/Textfill';
+import ScrollPager from './Source/Screens/onBoarding/scrollPage';
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
 
-function App() {
-  const isDarkMode = useColorScheme() === 'dark';
-
+export default function App() {
   return (
-    <View style={styles.container}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <NewAppScreen templateFileName="App.tsx" />
-    </View>
+    <Provider store={store}>
+    <SafeAreaView style={{flex:1}}>
+      <StatusBar/>
+        <RootNavigation/>
+    </SafeAreaView>
+    </Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
-
-export default App;
+const styles = StyleSheet.create({})
