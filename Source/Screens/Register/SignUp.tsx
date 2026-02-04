@@ -23,12 +23,12 @@ const SignUp = () => {
         <ThemeText style={{color:colors.subtitle}} variant='Popins_Bold_32'>Sign Up</ThemeText>
         <ThemeText style={{color:colors.TextOnboardingcolor}} variant='Popins_Regular_12'>Enter your details below & free sign up</ThemeText>
       </View>
-      <View style={{width:scale(375), height:scale(653), padding:scale(22), borderTopLeftRadius:scale(10), borderTopRightRadius:scale(10), backgroundColor:colors.modalAuthColor}}>
+      <View style={{width:scale(375), height:scale(653), padding:scale(22), borderTopLeftRadius:scale(10), borderTopRightRadius:scale(10), backgroundColor:colors.modalColor}}>
         <View>
           <Textfill labelone='Your Email' placeone='Enter your email' labeltwo='Your PassWord' placetwo='Enter your password' isHere={true}/>
         </View>
         <View>
-          <Boutton name='Create Account' isFill={true} style={{width:scale(327)}} onPress={() => navigation.replace('Phone')}/>
+          <Boutton name='Create Account' isFill={true} style={{width:scale(327)}} onPress={() => navigation.navigate('Phone')}/>
         </View>
         <View style={{flexDirection:'row', paddingVertical:scale(16), gap:scale(5)}}>
           <Pressable onPress={() => setIsCheck(!isCheck)} style={{ borderWidth:scale(1), backgroundColor: isCheck ? 'gray':colors.bgOnboardingColor, borderColor:'#B8B8D2', width:scale(15), height:scale(15),borderRadius:scale(2) }}/>

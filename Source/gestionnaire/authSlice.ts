@@ -2,15 +2,20 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 
 interface AuthState {
+  isAuthIn: any;
+//   isAuthenticated: any;
     isFirsLaunch:boolean;
     isLoggedIn:boolean;
-    user:any | undefined;
+    user: null | { id: string; email: string };
+     nav:any | boolean
 }
 
 const initialState:AuthState={
     isFirsLaunch:true,
     isLoggedIn:false,
-    user:undefined,
+    isAuthIn:false,
+    user:null,
+    nav:undefined
 }
 
 const authSlice = createSlice({
@@ -20,16 +25,24 @@ const authSlice = createSlice({
         completeOnboarding:(state) => {
             state.isFirsLaunch = false;
         },
-        login:(state, action:PayloadAction<any>) => {
-            state.isLoggedIn = true,
-            state.user = action.payload;
+        completeAuth:(state) => {
+            state.isAuthIn = true;
         },
         logout:(state) => {
             state.isLoggedIn = false,
-            state.user = undefined            
+            state.user = null           
         }
-    }
+    },
 });
+   const appSlice = createSlice ({
+        name:'app',
+        initialState,
+        reducers:{
+            completeHouse:(states) => {
+                states.nav = false
+            }
+        }
+    })
 
-export const {completeOnboarding, login, logout} = authSlice.actions
+export const {completeOnboarding,  completeAuth} = authSlice.actions
 export default authSlice.reducer

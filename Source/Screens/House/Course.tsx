@@ -9,6 +9,6 @@ const Course = () => {
   )
 }
 
-export default Course
+export default Course;
 
 const styles = StyleSheet.create({})

@@ -39,6 +39,11 @@ const Theme = StyleSheet.create({
         fontSize:textScale(18),
         fontWeight:'100'
     },
+      Popins_Medium_16:{
+        fontFamily:fontPath.Medium,
+        fontSize:textScale(16),
+        fontWeight:'100'
+      },
       Popins_Regular_18:{
         fontFamily:fontPath.Regular,
         fontSize:textScale(18),

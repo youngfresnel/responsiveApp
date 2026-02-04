@@ -5,10 +5,15 @@ import { ThemeText } from '../../Components/ThemeText'
 import { scale } from '../../responsiveSize'
 import { imgPath } from '../../Constant /imgPath'
 import { Boutton } from '../../Components/Bouton'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { RootStackAuthParamList } from '../../type/RootParamList'
+import { useNavigation } from '@react-navigation/native'
 
+type PhoneSceenProps = NativeStackNavigationProp<RootStackAuthParamList,'Phone'>
 const Phone = () => {
   const {colors} = useAppTheme();
-    const [phoneNumber, setPhoneNumber] = useState('');
+  const navigation = useNavigation<PhoneSceenProps>();
+     const [phoneNumber, setPhoneNumber] = useState('');
   
       const handleKeyPress = (value:any) => {
           if(value === 'delete'){
@@ -17,7 +22,7 @@ const Phone = () => {
               setPhoneNumber(phoneNumber + value)
           }
       };
-
+      
       const buttons = ['1','2','3','4','5','6','7','8','9','','0','delete'];
 
   return (
@@ -26,7 +31,7 @@ const Phone = () => {
         <ThemeText variant='Popins_Medium_18' style={{color:colors.subtitle}}>Continue With Phone</ThemeText>
         <Image source={imgPath.illustration}/>
       </View>
-      <View style={{width:scale(375), height:scale(520), padding:scale(22), borderTopLeftRadius:scale(10), borderTopRightRadius:scale(10), backgroundColor:colors.modalAuthColor}}>
+      <View style={{width:scale(375), height:scale(520), padding:scale(22), borderTopLeftRadius:scale(10), borderTopRightRadius:scale(10), backgroundColor:colors.modalColor}}>
         <View style={{alignItems:'center'}}>
           <ThemeText variant='Popins_Regular_14' style={{color:colors.TextOnboardingcolor, paddingVertical:scale(24) }}>Enter your Phone Number</ThemeText>
         </View>
@@ -41,11 +46,11 @@ const Phone = () => {
                             maxLength={9}
                             showSoftInputOnFocus={false} // Empêche le clavier natif de monter
                             placeholder="6XXXXXXXX"
-                            
+                            onChangeText={setPhoneNumber}
                             placeholderTextColor={colors.subtitle}
                             caretHidden={false} // Affiche le curseur même sans clavier
                           />
-                          <Boutton name='Continue' isFill={true} style={{marginLeft:scale(-155)}}/>            
+                          <Boutton name='Continue' isFill={true} style={{marginLeft:scale(-155)}} onPress={() => navigation.navigate('code', {phoneNumber:phoneNumber})}/>            
                         </View>
                     <View style={styles.keypadContainer}>
                         {buttons.map((button, index) => (
@@ -70,7 +75,13 @@ const Phone = () => {
   )
 }
 
+
+
 export default Phone
+
+
+
+
 
 const styles = StyleSheet.create({
   container: {
@@ -78,10 +89,8 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     paddingBottom: 30,
   },
-  // Style pour le numéro de téléphone affiché au-dessus
   inputDisplay: { 
     fontSize: 24,
-    // textAlign: 'center',
     left:scale(1),
     marginBottom: 20,
     width:scale(327),
@@ -90,9 +99,6 @@ const styles = StyleSheet.create({
     borderWidth:scale(.2),
     borderColor:'#B8B8D2'
    
-    
-    // Assurez-vous d'avoir une View autour de votre TextInput avec un style 
-    // qui correspond à la boîte de saisie grise claire de l'image.
   },
   keypadContainer: {
     flexDirection: 'row',

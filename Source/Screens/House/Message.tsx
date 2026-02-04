@@ -9,6 +9,6 @@ const Message = () => {
   )
 }
 
-export default Message
+export default Message;
 
 const styles = StyleSheet.create({})

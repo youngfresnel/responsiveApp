@@ -32,7 +32,7 @@ import useAppTheme from '../Hooks/useAppTheme';
                         width:scale(327),
                          height:scale(50), 
                          borderRadius:scale(12), 
-                         color:'#1F1F39',
+                         color:colors.subtitle,
                          borderWidth:scale(1),
                          borderColor:'#B8B8D2'
                          }} 
@@ -50,7 +50,7 @@ import useAppTheme from '../Hooks/useAppTheme';
                         backgroundColor:colors.bgOnboardingColor, 
                         width:scale(327), height:scale(50), 
                         borderRadius:scale(12), 
-                        color:'#1F1F39',
+                        color:colors.subtitle,
                         borderWidth:scale(1),
                         borderColor:'#B8B8D2'
                         }} placeholderTextColor={colors.subtitle}
@@ -58,7 +58,7 @@ import useAppTheme from '../Hooks/useAppTheme';
                         />
                         { isHere && 
                         <Pressable style={{marginLeft:scale(280), bottom:scale(38)}} onPress={()=>setIsVisible(!isVisible)}>
-                        {isVisible ? <EyeIcon color="black"/> : <EyeSlashIcon color="black" />}
+                        {isVisible ? <EyeIcon color="black" style={{color:colors.subtitle}}/> : <EyeSlashIcon color="black" style={{color:colors.BoutonColor}} />}
                     </Pressable>}
                 </View>
             </View>

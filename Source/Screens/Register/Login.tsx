@@ -1,5 +1,5 @@
 import { Pressable, SafeAreaView, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import { Boutton } from '../../Components/Bouton'
 import { Textfill } from '../../Components/Textfill'
 import { ThemeText } from '../../Components/ThemeText'
@@ -13,6 +13,7 @@ type LoginScreensProps = NativeStackNavigationProp<RootStackAuthParamList,'Login
 
 
 const Login = () => {
+    const [phoneNumber, setPhoneNumber] = useState('');
 
   const {colors} = useAppTheme();
   const navigation = useNavigation<LoginScreensProps>();
@@ -23,7 +24,7 @@ const Login = () => {
             <ThemeText style={{color:colors.subtitle}} variant='Popins_Bold_32'>Log In</ThemeText>
             <ThemeText style={{color:colors.TextOnboardingcolor}} variant='Popins_Regular_12'>Enter your details below & free sign up</ThemeText>
           </View>
-          <View style={{width:scale(375), height:scale(653), padding:scale(22), borderTopLeftRadius:scale(10), borderTopRightRadius:scale(10), backgroundColor:colors.modalAuthColor}}>
+          <View style={{width:scale(375), height:scale(653), padding:scale(22), borderTopLeftRadius:scale(10), borderTopRightRadius:scale(10), backgroundColor:colors.modalColor}}>
             <View>
               <Textfill labelone='Your Email' placeone='Enter your email' labeltwo='Your PassWord' placetwo='Enter your password' isHere={true}/>
             </View>
@@ -33,7 +34,7 @@ const Login = () => {
               <ThemeText variant='Popins_Regular_12' style={{alignSelf:'flex-end', marginLeft:scale(60)}}>Forget password?</ThemeText>
             </View>
             <View>
-              <Boutton name='Log In' isFill={true} style={{width:scale(327)}}/>
+              <Boutton name='Log In' isFill={true} style={{width:scale(327)}} onPress={() => navigation.navigate('Phone')}/>
             </View>
             <View style={{flexDirection:'row', paddingHorizontal:scale(72), paddingVertical:scale(24)}}>
               <ThemeText variant='Popins_Regular_12' style={{color:colors.TextOnboardingcolor}}>Don’t have an account? </ThemeText>

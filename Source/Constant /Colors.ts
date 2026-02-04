@@ -5,8 +5,10 @@ export const Colors = {
         TextOnboardingcolor:'#858597',
         subtitle:'#1F1F39',
         bgAuthColor:'#F0F0F2',
-        modalAuthColor:'#FFFFFF',
-        phoneColor:'#FFFFFF'
+        modalColor:'#FFFFFF',
+        phoneColor:'#FFFFFF',
+        codeColor:'#FFFFFF',
+        phoneBorderColor:'#B8B8D2'
     },
 
     dark:{
@@ -15,7 +17,9 @@ export const Colors = {
         TextOnboardingcolor:'#B8B8D2',
         subtitle:'#EAEAFF',
         bgAuthColor:'#1F1F39',
-        modalAuthColor:'#2F2F42',
-        phoneColor:'#3E3E55'
+        modalColor:'#2F2F42',
+        phoneColor:'#3E3E55',
+        codeColor:"#2F2F42",
+        phoneBorderColor:'#3E3E55',
     }
 }

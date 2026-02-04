@@ -5,11 +5,14 @@ import { fontPath } from '../Constant /fontPath';
 import { Colors } from '../Constant /Colors';
 import { RootTabParamList } from '../type/RootParamList';
 import { moderateScale, scale, textScale } from '../responsiveSize';
-import { ArchiveIcon, HouseSimpleIcon, MagnifyingGlassIcon } from 'phosphor-react-native';
+import { ArchiveIcon, ChatCenteredDotsIcon, HouseSimpleIcon, MagnifyingGlassIcon, UserIcon } from 'phosphor-react-native';
 import Home from '../Screens/House/Home';
 import Course from '../Screens/House/Course';
 import Search from '../Screens/House/Search';
 import Account from '../Screens/House/Account';
+import Message from '../Screens/House/Message';
+import { View } from 'react-native';
+import Icons from '../icons';
 
 
 const Tab = createBottomTabNavigator<RootTabParamList>();
@@ -24,28 +27,43 @@ const TabNavigation = () => {
                 tabBarShowLabel: true,
                 tabBarStyle: {
                     backgroundColor: colors.bgOnboardingColor,
-                    elevation: scale(10),
+                    // elevation: scale(10),
                     borderTopWidth: 0,
-                    paddingBottom: moderateScale(12),
-                    height: scale(70),
+                    // paddingBottom:scale(0),
+                    height: scale(111),
+                    position:'relative',
+                    width:scale(375),
+                    borderRadius:scale(16),
+                    top:14,
+                    justifyContent:'center',
+                    alignItems:'center'
                 },
-                tabBarActiveTintColor: colors.bgOnboardingColor, 
+                tabBarActiveTintColor: '#3D5CFF', 
                 tabBarInactiveTintColor: '#9E9E9E',
                 tabBarLabelStyle: {
                     fontFamily: fontPath.Medium,
-                    fontSize: textScale(12), 
+                    fontSize: textScale(11), 
+                     marginBottom: scale(10),
                 },
+                tabBarIconStyle:{
+                    marginTop: scale(10),
+                },
+                
                 tabBarIcon: ({ color, focused }) => {
+                    
                     const iconSize = 24;
-                    const weight = focused ? 'fill' : 'regular'; 
                     
                     // On retourne directement le composant
                     if (route.name === 'Home') {
-                        return <HouseSimpleIcon size={iconSize} color={color} weight={weight} />;
+                        return focused ?  <HouseSimpleIcon size={iconSize}  weight='fill'  />:<HouseSimpleIcon size={iconSize} />
                     } else if (route.name === 'Course') {
-                        return <ArchiveIcon size={iconSize} color={color} weight={weight} />;
+                        return focused ?  <ArchiveIcon size={iconSize}  weight='fill'/>: <ArchiveIcon size={iconSize}/>
                     } else if (route.name === "Search") {
-                        return <MagnifyingGlassIcon size={iconSize} color={color} weight={weight} />;
+                        return focused ?  <Icons/> : <MagnifyingGlassIcon size={iconSize}/>
+                    } else if(route.name === 'Message') {
+                        return focused ? <ChatCenteredDotsIcon weight='fill'/> : <ChatCenteredDotsIcon size={iconSize}/> 
+                    }else if (route.name === 'Account') {
+                        return focused ? <UserIcon weight='fill' size={iconSize}/> : <UserIcon size={iconSize}/>
                     }
                 }
             })}
@@ -53,6 +71,7 @@ const TabNavigation = () => {
             <Tab.Screen name='Home' component={Home} />
             <Tab.Screen name='Course' component={Course}/>
             <Tab.Screen name='Search' component={Search}/>
+            <Tab.Screen name='Message' component={Message}/>
             <Tab.Screen name='Account' component={Account}/>
         </Tab.Navigator>
     );

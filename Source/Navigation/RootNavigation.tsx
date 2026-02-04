@@ -11,17 +11,18 @@ import { RootState } from '../gestionnaire/Store';
 const Root = createNativeStackNavigator();
 
 const RootNavigation = () => {
-  const { isFirsLaunch, isLoggedIn } = useSelector((state: RootState) => state.auth);
+  // const isLoggedIn  = useSelector((state: RootState) => state.auth);
+    const isAuthIn = useSelector((state: RootState) => state.auth.isAuthIn);
 
   return (
     <NavigationContainer>
       <Root.Navigator screenOptions={{ headerShown: false }}>
-        {isFirsLaunch ? (
-          // Si c'est le premier lancement, on monte le stack d'onboarding et les AuthScreens
-          <Root.Screen name="OnboardingFlow" component={AuthStack} />
-        ) : !isLoggedIn ? (
+        {isAuthIn? (
+          // Si c'est le premier lancement, on monte le groupe d'authentification 
           <Root.Screen name="MainFlow" component={TabNavigation} />
-        ):(undefined)}
+        ) : (
+          <Root.Screen name="OnboardingFlow" component={AuthStack} />
+        )}
       </Root.Navigator>
     </NavigationContainer>
   );
