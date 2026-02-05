@@ -9,6 +9,11 @@ const Theme = StyleSheet.create({
         fontSize:textScale(16),
         fontWeight:'100'
     },
+        Popins_Bold_20:{
+        fontFamily:fontPath.Bold,
+        fontSize:textScale(20),
+        fontWeight:'bold'
+    },
     Popins_Bold_22:{
         fontFamily:fontPath.Bold,
         fontSize:textScale(22),
@@ -32,6 +37,11 @@ const Theme = StyleSheet.create({
      Popins_Regular_12:{
         fontFamily:fontPath.Regular,
         fontSize:textScale(12),
+        fontWeight:'100'
+    },
+      Popins_Regular_10:{
+        fontFamily:fontPath.Regular,
+        fontSize:textScale(10),
         fontWeight:'100'
     },
     Popins_Medium_18:{

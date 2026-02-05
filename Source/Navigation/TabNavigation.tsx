@@ -32,11 +32,11 @@ const TabNavigation = () => {
                     // paddingBottom:scale(0),
                     height: scale(111),
                     position:'relative',
-                    width:scale(375),
+                    width:scale(376),
                     borderTopLeftRadius:scale(16),
                     borderTopRightRadius:scale(16),
                     // borderRadius:scale(16),
-                    // top:1,
+                    top:scale(1),
                     justifyContent:'center',
                     alignItems:'center'
                 },

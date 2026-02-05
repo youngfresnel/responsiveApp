@@ -58,15 +58,14 @@ const OtpScreen = ({route}:Props) => {
               // On est focus si c'est l'index actuel 
               // OU si le code est plein et qu'on est sur la dernière case
               const isFocused = index === code.length || (code.length === CODE_LENGTH && index === CODE_LENGTH - 1);
-              
-              // Pour le curseur : on ne l'affiche que si c'est la case active 
+              // Pour le curseur : on ne l'affiche que si c'est la case active
               // ET (soit la case est vide, soit le code est complet pour rester sur la dernière)
               const showCursor = isFocused && (index === code.length || code.length === CODE_LENGTH);
             const char = code[index];
 
             return (
-              <View 
-                key={index} 
+              <View
+                key={index}
                 style={[styles.cell, isFocused && styles.focusCell, {borderColor:colors.phoneBorderColor,}]}
               >
                 <ThemeText  variant='Popins_Medium_18' style={[styles.cellText, {color:colors.subtitle}]}>{char}</ThemeText>

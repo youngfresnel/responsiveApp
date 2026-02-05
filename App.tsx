@@ -13,7 +13,7 @@ export default function App() {
   return (
     <Provider store={store}>
     <SafeAreaView style={{flex:1}}>
-      <StatusBar/>
+      <StatusBar hidden={true} translucent={true}/>
         <RootNavigation/>
     </SafeAreaView>
     </Provider>
