@@ -53,7 +53,8 @@ const Theme = StyleSheet.create({
         fontFamily:fontPath.Bold,
         fontSize:textScale(32),
         fontWeight:'bold'
-    }
+    },
+    
 
 })
 

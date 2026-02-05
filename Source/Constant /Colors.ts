@@ -8,7 +8,13 @@ export const Colors = {
         modalColor:'#FFFFFF',
         phoneColor:'#FFFFFF',
         codeColor:'#FFFFFF',
-        phoneBorderColor:'#B8B8D2'
+        phoneBorderColor:'#B8B8D2',
+        // Couleur de la deuxieme pile des ecrans en light
+         tabBarColors:'#FFFF',
+         searchActiveBarColors:"#3D5CFF",
+         SearchInactiveBarColor:'#B8B8D2',
+         freeCadreColors:'#FFFF'
+
     },
 
     dark:{
@@ -17,9 +23,16 @@ export const Colors = {
         TextOnboardingcolor:'#B8B8D2',
         subtitle:'#EAEAFF',
         bgAuthColor:'#1F1F39',
-        modalColor:'#2F2F42',
+        modalColor:'#030303ff',
         phoneColor:'#3E3E55',
         codeColor:"#2F2F42",
         phoneBorderColor:'#3E3E55',
+
+         // Couleur de la deuxieme pile des ecrans en dark
+         tabBarColors:'#1F1F39',
+         searchActiveBarColors:"#3D5CFF",
+         SearchInactiveBarColor:'#1F1F39',
+         freeCadreColors:'#2F2F42',
+
     }
 }

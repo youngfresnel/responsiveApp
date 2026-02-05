@@ -4,4 +4,5 @@ export const imgPath = {
     'illustration3' : require('../Assets/images/illustration_3.png'),
     "illustration" : require ('../Assets/images/illustration.png'),
     "vector7" : require('../Assets/images/Vector_7.png'),
+    "Maskgroup" : require ('../Assets/images/Mask_Group.png')
 }
